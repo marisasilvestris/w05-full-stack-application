@@ -16,4 +16,4 @@
 - ls to make sure you're in w05-full-stack-application 
 - touch .env
 - you're finished and can code . to open in visual studio
-after initial pull, must create /server/.env
+- after initial pull, must create /server/.env
