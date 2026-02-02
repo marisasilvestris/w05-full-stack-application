@@ -5,7 +5,7 @@
 - In your terminal add `git clone git@github.com:marisasilvestris/w05-full-stack-application.git`
 - cd into the folder
 - cd w05-full-stack-application
--install client and server
+- install client and server
 - cd server
 - npm install
 - cd ..
