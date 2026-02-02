@@ -3,7 +3,7 @@
 ### Copying repository from GitHub
 - In your terminal (Ubuntu if on Windows) type `git clone git@github.com:marisasilvestris/w05-full-stack-application.git`
 ### Installing required packages
-- cd into the folder `cd w05-full-stack-application`
+- cd into the directory `cd w05-full-stack-application`
 #### Install client and server
 - `cd server`
 - `npm install`
