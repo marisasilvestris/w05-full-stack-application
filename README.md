@@ -1,7 +1,7 @@
 # w05-full-stack-application
 ## Initial Setup (can delete later if you'd like, this is more for classmates than instructor)
 ### Copying repository from GitHub
-- In your terminal (Ubuntu if on Windows) add `git clone git@github.com:marisasilvestris/w05-full-stack-application.git`
+- In your terminal (Ubuntu if on Windows) type `git clone git@github.com:marisasilvestris/w05-full-stack-application.git`
 ### Installing required packages
 - cd into the folder `cd w05-full-stack-application`
 #### Install client and server
