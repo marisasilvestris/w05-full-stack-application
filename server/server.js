@@ -11,3 +11,7 @@ dotenv.config();
 const db = new pg.Pool({
   connectionString: process.env.DB_CONN,
 });
+
+app.get(`/`, (req, res) => {
+  res.send(`GET requested to / successfully`);
+});
