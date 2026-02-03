@@ -42,6 +42,13 @@ app.post(`/listings`, async (req, res) => {
   res.send(`POST requested to /listings successfully`);
 });
 
+app.delete("/listings", async (req, res) => {
+  const submissionData = req.body;
+  const dbQuery = await db.query(
+    `DELETE FROM listings WHERE id = ${submissionData.id}`,
+  );
+});
+
 app.listen(3000, (req, res) => {
   console.log(`listening successfully on 3000!`);
 });
