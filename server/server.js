@@ -15,3 +15,16 @@ const db = new pg.Pool({
 app.get(`/`, (req, res) => {
   res.send(`GET requested to / successfully`);
 });
+app.get(`/listings`, async (req, res) => {
+  const listingData = await db.query(`${queryStr}`);
+  const rows = listingData.rows;
+  res.status(200).json(rows);
+  res.send(`GET requested to /listings successfully`);
+});
+app.post(`/listings`, async (req, res) => {
+  res.send(`POST requested to /listings successfully`);
+});
+
+app.listen(8080, (req, res) => {
+  console.log(`listening successfully!`);
+});
