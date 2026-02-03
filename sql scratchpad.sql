@@ -1,0 +1,1 @@
+SELECT * FROM listings WHERE category="job"
