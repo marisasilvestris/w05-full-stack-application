@@ -59,6 +59,14 @@ app.post(`/listings`, async (req, res) => {
   res.send(`POST requested to /listings successfully:<br/>${submissionData}`);
 });
 
+// Individual listing page?
+// I'm making the huge assumption based on a brief reading of the docs that res.render() can take an object as an argument and thus gets the info for building the subsequent page?
+// I've also just noticed the docs recommend heavily against passing user-submitted info into the locals parameter as it can lead to XSS. so uh, idk what to do with that.
+app.get(`/listing`, async (req, res) => {
+  const submissionData = req.body;
+  res.render("listing", submissionData);
+});
+
 // TODO - make more intelligent
 app.delete(`/listings`, async (req, res) => {
   const submissionData = req.body;
