@@ -41,8 +41,17 @@ app.get(`/listings`, async (req, res) => {
 });
 
 // Individual listing page?
-app.get(`/listings/:id`, async (req, res) => {
+app.get(`/listing/:id`, async (req, res) => {
   const queryStr = `SELECT * FROM listings WHERE id = ${parseInt(req.params.id)}`;
+  const listingData = await db.query(`${queryStr}`);
+  const rows = listingData.rows; // partly keeping this step around to remind myself it exists
+  res.status(200).json(rows);
+  console.log("individual request logged");
+});
+
+// Individual category page?
+app.get(`/category/:category`, async (req, res) => {
+  const queryStr = `SELECT * FROM listings WHERE category='${req.params.category}'`;
   const listingData = await db.query(`${queryStr}`);
   const rows = listingData.rows; // partly keeping this step around to remind myself it exists
   res.status(200).json(rows);
