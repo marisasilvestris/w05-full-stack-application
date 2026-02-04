@@ -46,7 +46,6 @@ form button {
   cursor: pointer;
 }
 
-html, body {
-  height: 100%;
-  overflow-y: auto;
+html {
+  overflow-y: scroll;
 }
