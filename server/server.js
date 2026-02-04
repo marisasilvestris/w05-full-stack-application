@@ -42,6 +42,16 @@ app.get(`/listings`, async (req, res) => {
   res.send(`GET requested to /listings successfully`);
 });
 
+// Individual listing page?
+// I'm making the huge assumption based on a brief reading of the docs that res.render() can take an object as an argument and thus gets the info for building the subsequent page?
+// I've also just noticed the docs recommend heavily against passing user-submitted info into the locals parameter as it can lead to XSS. so uh, idk what to do with that.
+app.get(`/listings/:id`, async (req, res) => {
+  const queryStr = `SELECT * FROM listings WHERE id = ${req.params.id}`;
+  const listingData = await db.query(`${queryStr}`);
+  const rows = listingData.rows;
+  res.send(rows);
+});
+
 app.post(`/listings`, async (req, res) => {
   const submissionData = req.body;
   const dbQuery = await db.query(
@@ -59,21 +69,14 @@ app.post(`/listings`, async (req, res) => {
   res.send(`POST requested to /listings successfully:<br/>${submissionData}`);
 });
 
-// Individual listing page?
-// I'm making the huge assumption based on a brief reading of the docs that res.render() can take an object as an argument and thus gets the info for building the subsequent page?
-// I've also just noticed the docs recommend heavily against passing user-submitted info into the locals parameter as it can lead to XSS. so uh, idk what to do with that.
-app.get(`/listing`, async (req, res) => {
-  const submissionData = req.body;
-  res.render("listing", submissionData);
-});
-
+/* I am just turning this off until I improve it */
 // TODO - make more intelligent
-app.delete(`/listings`, async (req, res) => {
-  const submissionData = req.body;
-  const dbQuery = await db.query(
-    `DELETE FROM listings WHERE id = ${submissionData.id} OR name = '${submissionData.name}' OR title = '${submissionData.title}' OR category = '${submissionData.category}' OR body = '${submissionData.body}' OR brief = '${submissionData.brief}'`,
-  );
-});
+// app.delete(`/listings`, async (req, res) => {
+//   const submissionData = req.body;
+//   const dbQuery = await db.query(
+//     `DELETE FROM listings WHERE id = ${submissionData.id} OR name = '${submissionData.name}' OR title = '${submissionData.title}' OR category = '${submissionData.category}' OR body = '${submissionData.body}' OR brief = '${submissionData.brief}'`,
+//   );
+// });
 
 // open port 3000
 app.listen(3000, (req, res) => {
