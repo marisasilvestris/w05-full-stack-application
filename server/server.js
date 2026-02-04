@@ -36,20 +36,17 @@ app.get(`/listings`, async (req, res) => {
   const queryStr = `SELECT * FROM listings`;
   const listingData = await db.query(`${queryStr}`);
   const rows = listingData.rows;
+  res.status(200).json(rows);
 
   console.log(rows);
-
-  res.send(`GET requested to /listings successfully`);
 });
 
 // Individual listing page?
-// I'm making the huge assumption based on a brief reading of the docs that res.render() can take an object as an argument and thus gets the info for building the subsequent page?
-// I've also just noticed the docs recommend heavily against passing user-submitted info into the locals parameter as it can lead to XSS. so uh, idk what to do with that.
 app.get(`/listings/:id`, async (req, res) => {
   const queryStr = `SELECT * FROM listings WHERE id = ${req.params.id}`;
   const listingData = await db.query(`${queryStr}`);
-  const rows = listingData.rows;
-  res.send(rows);
+  const rows = listingData.rows; // partly keeping this step around to remind myself it exists
+  console.log(rows);
 });
 
 app.post(`/listings`, async (req, res) => {
@@ -70,11 +67,10 @@ app.post(`/listings`, async (req, res) => {
 });
 
 /* I am just turning this off until I improve it */
-// TODO - make more intelligent
-// app.delete(`/listings`, async (req, res) => {
-//   const submissionData = req.body;
+// // TODO - make more intelligent
+// app.delete(`/listings:id`, async (req, res) => {
 //   const dbQuery = await db.query(
-//     `DELETE FROM listings WHERE id = ${submissionData.id} OR name = '${submissionData.name}' OR title = '${submissionData.title}' OR category = '${submissionData.category}' OR body = '${submissionData.body}' OR brief = '${submissionData.brief}'`,
+//     `DELETE FROM listings WHERE id = ${req.params.id} OR name = '${req.params.name}' OR title = '${req.params.title}' OR category = '${req.params.category}' OR body = '${req.params.body}' OR brief = '${req.params.brief}'`,
 //   );
 // });
 
