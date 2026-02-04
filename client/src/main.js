@@ -5,7 +5,7 @@ const display = document.getElementById("app");
 const form = document.getElementById("form");
 
 // Base URL of the Express server (must match app.listen port in server.js)
-const baseURL = "http://localhost:8080";
+const baseURL = "http://localhost:3000";
 
 // Fetch all listings from the server
 async function fetchListings() {
