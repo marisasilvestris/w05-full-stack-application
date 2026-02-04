@@ -14,7 +14,7 @@ const db = new pg.Pool({
 });
 
 app.get(`/`, (req, res) => {
-  res.render("index");
+  // res.render("index");
 });
 
 // visit this URL to refresh the table with dummy data if anything goes wrong, i'll pull this from a file for collab purposes later
@@ -37,16 +37,16 @@ app.get(`/listings`, async (req, res) => {
   const listingData = await db.query(`${queryStr}`);
   const rows = listingData.rows;
   res.status(200).json(rows);
-
-  console.log(rows);
+  console.log("list request logged");
 });
 
 // Individual listing page?
 app.get(`/listings/:id`, async (req, res) => {
-  const queryStr = `SELECT * FROM listings WHERE id = ${req.params.id}`;
+  const queryStr = `SELECT * FROM listings WHERE id = ${parseInt(req.params.id)}`;
   const listingData = await db.query(`${queryStr}`);
   const rows = listingData.rows; // partly keeping this step around to remind myself it exists
-  console.log(rows);
+  res.status(200).json(rows);
+  console.log("individual request logged");
 });
 
 app.post(`/listings`, async (req, res) => {
