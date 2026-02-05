@@ -6,7 +6,7 @@ body {
   color: #000000;
   background: #F7F7F7;
   font-family: Arial, sans-serif;
-  font-size: 18px;
+  font-size: clamp(16px, 2vw, 18px);
 }
 
 nav {
@@ -100,11 +100,12 @@ section {
   }
 
   nav li {
-    padding: 0;
+    padding: 6px 0;
   }
 
   nav {
-    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
   main {
