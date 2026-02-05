@@ -92,10 +92,6 @@ section {
   }
 }
 
-nav li {
-  padding: 6px 0;
-}
-
 @media (min-width: 900px) {
   nav ul {
     flex-direction: row;
