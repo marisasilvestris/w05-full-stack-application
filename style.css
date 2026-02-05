@@ -59,17 +59,17 @@ nav a:focus {
 }
 
 .skip-link:focus {
-  clip: auto;
   left: 10px;
   top: 10px;
+  clip: auto;
   width: auto;
   height: auto;
   border-radius: 2px;
   font-weight: bold;
 }
 
-a:focus,
-button:focus-visible;
+a:focus-visible,
+button:focus-visible,
 input:focus-visible {
   outline: 3px solid #FFEA00;
   outline-offset: 2px;
