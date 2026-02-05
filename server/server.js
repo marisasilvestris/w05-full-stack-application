@@ -82,8 +82,3 @@ app.post(`/listings`, async (req, res) => {
 app.listen(3000, (req, res) => {
   console.log(`listening successfully on 3000!`);
 });
-
-/* now what i should do here is retrieve the data once, keep it around in a big cached array, and use it when needed. i will not be doing that yet */
-
-// ((queryStr = `INSERT INTO reviews (name, rating, reviewText) VALUES ($1, $2, $3)`),
-//   [userData.name, Number(userData.rating), userData.reviewText]);
