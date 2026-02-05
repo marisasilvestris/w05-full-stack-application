@@ -11,12 +11,13 @@ nav a {
 
 .skip-link {
   position: absolute;
-  top: -40px;
+  top: 0px;
   left: 10px;
   background: #000000;
   color: #fff;
   padding: 8px 12px;
   z-index: 100;
+  text-decoration: none;
 }
 
 .skip-link:focus {
@@ -27,7 +28,7 @@ nav a {
 a:focus,
 button:focus,
 input:focus {
-  outline: 3px solid #000000;
+  outline: 3px solid #007BFF;
   outline-offset: 2px;
 }
 
