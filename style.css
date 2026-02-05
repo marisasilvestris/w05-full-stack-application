@@ -12,10 +12,6 @@ nav ul {
   gap: 8px;
 }
 
-nav li {
-  margin-bottom: 8px;
-}
-
 nav a {
   color: white;
   margin-right: 15px;
