@@ -73,6 +73,16 @@ app.post(`/listings`, async (req, res) => {
 //     `DELETE FROM listings WHERE id = ${req.params.id} OR name = '${req.params.name}' OR title = '${req.params.title}' OR category = '${req.params.category}' OR body = '${req.params.body}' OR brief = '${req.params.brief}'`,
 //   );
 // });
+//Delete
+app.delete(`/listings/:id`, async (req, res) => {
+  const id = req.params.id;
+
+  // Simple query using $1 for extra safety
+  await db.query(`DELETE FROM listings WHERE id = $1`, [id]);
+
+  console.log(`Deleted listing with id: ${id}`);
+  res.send(`Deleted item ${id}`);
+});
 
 // open port 3000
 app.listen(3000, (req, res) => {
