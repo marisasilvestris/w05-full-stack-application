@@ -12,6 +12,7 @@ body {
 nav {
   background: #1F2937;
   padding: 10px;
+  width: 100%;
 }
 
 nav ul {
@@ -131,10 +132,10 @@ section {
   }
 
   nav {
-  padding: 8px;
+    padding: 8px;
   }
 
   nav a {
-  padding: 10px 12px;
+    padding: 10px 12px;
   }
 }
