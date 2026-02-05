@@ -15,6 +15,7 @@ const db = new pg.Pool({
 
 app.get(`/`, (req, res) => {
   // res.render("index");
+  res.status(200).send(`OK`);
 });
 
 // visit this URL to refresh the table with dummy data if anything goes wrong, i'll pull this from a file for collab purposes later
@@ -40,22 +41,33 @@ app.get(`/listings`, async (req, res) => {
   console.log("list request logged");
 });
 
-// Individual listing page?
+// Individual listing page
+// GET to /listing/<listing id> to get only those items
 app.get(`/listing/:id`, async (req, res) => {
-  const queryStr = `SELECT * FROM listings WHERE id = ${parseInt(req.params.id)}`;
-  const listingData = await db.query(`${queryStr}`);
-  const rows = listingData.rows; // partly keeping this step around to remind myself it exists
+  const queryStr = `SELECT * FROM listings WHERE id = $1`;
+  const listingData = await db.query(`${queryStr}`, [req.params.id]);
+  const rows = listingData.rows;
   res.status(200).json(rows);
-  console.log("individual request logged");
+  console.log("individual listing request");
 });
 
-// Individual category page?
+// example context-dependent version of fetchListings
+// async function fetchListings() {
+//   const response = await fetch(`${baseURL}/category/jobs`);
+
+//   const listings = await response.json();
+
+//   return listings;
+// }
+
+// Individual category page
+// GET to /category/<category name> to get only those items
 app.get(`/category/:category`, async (req, res) => {
-  const queryStr = `SELECT * FROM listings WHERE category='${req.params.category}'`;
-  const listingData = await db.query(`${queryStr}`);
+  const queryStr = `SELECT * FROM listings WHERE category = $1`;
+  const listingData = await db.query(`${queryStr}`, [req.params.category]);
   const rows = listingData.rows; // partly keeping this step around to remind myself it exists
   res.status(200).json(rows);
-  console.log("individual request logged");
+  console.log("individual category request");
 });
 
 app.post(`/listings`, async (req, res) => {
