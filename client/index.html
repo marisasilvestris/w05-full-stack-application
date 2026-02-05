@@ -1,47 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Community Board</title>
-  <link rel="stylesheet" href="/src/style.css" />
-  <script type="module" src="/src/main.js" defer></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Board</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Community Board</h1>
+    </header>
 
-  <header>
-    <h1>Community Board</h1>
-  </header>
+    <main>
+      <section class="form-section">
+        <h2>Create a Listing</h2>
 
-  <main>
-    <section class="form-section">
-  <h2>Create a Listing</h2>
+        <form id="form">
+          <input name="name" placeholder="Name" required />
+          <input name="title" placeholder="Title" required />
 
-  <form id="form">
-    <input name="name" placeholder="Name" required />
-    <input name="title" placeholder="Title" required />
+          <select name="category" id="category" required>
+            <option value="" disabled selected>Category</option>
+            <option value="Jobs">Jobs</option>
+            <option value="Events">Events</option>
+            <option value="Get-Togethers">Get-Togethers</option>
+            <option value="Courses">Courses / Workshops</option>
+            <option value="Announcements">Announcements</option>
+          </select>
 
-    <select name="category" id="category" required>
-      <option value="" disabled selected>Category</option>
-      <option value="Jobs">Jobs</option>
-      <option value="Events">Events</option>
-      <option value="Get-Togethers">Get-Togethers</option>
-      <option value="Courses">Courses / Workshops</option>
-      <option value="Announcements">Announcements</option>
-    </select>
+          <input name="brief" placeholder="Brief" required />
+          <textarea name="body" placeholder="Body" required></textarea>
+          <button type="submit">Post</button>
+        </form>
+      </section>
 
-    <input name="brief" placeholder="Brief" required />
-    <textarea name="body" placeholder="Body" required></textarea>
-    <button type="submit">Post</button>
-  </form>
-</section>
-
-    <section class="listings-section">
-      <h2>Listings</h2>
-      <div id="app"></div>
-    </section>
-  </main>
-
-  
-</body>
+      <section class="listings-section">
+        <h2>Listings</h2>
+        <div id="app"></div>
+      </section>
+    </main>
+  </body>
 </html>

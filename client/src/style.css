@@ -48,13 +48,12 @@ select {
 
 textarea {
   min-height: 80px;
-  resize: vertical; 
+  resize: vertical;
 }
-
 
 button {
   padding: 12px;
-  font-size: 16px; 
+  font-size: 16px;
   background-color: #222;
   color: white;
   border: none;
@@ -69,7 +68,7 @@ button:hover {
 /* Listings section */
 #app {
   display: flex;
-  flex-direction: wrap; 
+  flex-flow: column nowrap;
   gap: 16px;
 }
 
