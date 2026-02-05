@@ -46,7 +46,7 @@ nav a:focus {
   position: absolute;
   left: -9999px;
   top: auto;
-  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
   width: 1px;
   height: 1px;
   overflow: hidden;
@@ -61,7 +61,7 @@ nav a:focus {
 .skip-link:focus {
   left: 10px;
   top: 10px;
-  clip: auto;
+  clip-path: none;
   width: auto;
   height: auto;
   border-radius: 2px;
@@ -108,7 +108,7 @@ section {
   }
 
   nav {
-    width: 100%;
+    max-width: 1100px;
     margin: 0 auto;
   }
 
