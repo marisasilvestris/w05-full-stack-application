@@ -11,8 +11,8 @@ nav a {
 
 .skip-link {
   position: absolute;
-  top: 0px;
-  left: 10px;
+  left: -999px;
+  top: 0;
   background: #000000;
   color: #fff;
   padding: 8px 12px;
