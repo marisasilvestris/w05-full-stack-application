@@ -9,9 +9,12 @@
   </head>
   
   <body>
+    
+    <div aria-live="polite" id="filter-announcement"></div>
+    
     <a href="#main" class="skip-link">Skip to main content</a>
     
-    <nav aria-label="Site navigation">
+    <nav aria-label="Site navigation" role="navigation">
       <ul>
         <li><a href="/" aria-current="page">Home</a></li>
         <li><a href="/about">About</a></li>
@@ -19,7 +22,7 @@
       </ul>
     </nav>
     
-<main id="main">
+<main id="main" role="main">
  <section aria-labelledby="home-heading">
    <h1 id="home-heading">Home</h1>
    <p>This is an accessible Home Page where you can browse information about our site.</p>
