@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Community Board</title>
   <link rel="stylesheet" href="/src/style.css" />
-  <script type="module" src="/src/main.js" defer></script>
+  <script type="module" src="/src/client-only.js" defer></script>
 </head>
 <body>
 
@@ -30,18 +30,29 @@
       <option value="Announcements">Announcements</option>
     </select>
 
-    <input name="brief" placeholder="Brief" required />
-    <textarea name="body" placeholder="Body" required></textarea>
+    <input name="brief" placeholder="Brief Description" required />
+    <textarea name="body" placeholder="Please provide a full description of your listing." required></textarea>
     <button type="submit">Post</button>
   </form>
 </section>
+
+<section class="filters-section">
+  <h2>Filter by Category</h2>
+  <div class="filters">
+    <button class="category-btn" data-category="All">All</button>
+    <button class="category-btn" data-category="Jobs">Jobs</button>
+    <button class="category-btn" data-category="Events">Events</button>
+    <button class="category-btn" data-category="Get-Togethers">Get-Togethers</button>
+    <button class="category-btn" data-category="Courses">Courses / Workshops</button>
+    <button class="category-btn" data-category="Announcements">Announcements</button>
+      </div>
+    </section>
 
     <section class="listings-section">
       <h2>Listings</h2>
       <div id="app"></div>
     </section>
-  </main>
+</main>
 
-  
 </body>
 </html>
