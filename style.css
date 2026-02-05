@@ -39,12 +39,16 @@ nav a:hover,
 nav a:focus {
   outline: 3px solid #FFEA00;
   outline-offset: 2px;
+  text-decoration: underline;
 }
 
 .skip-link {
   position: absolute;
-  left: -999px;
-  top: 0;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
   background: #000000;
   color: #fff;
   padding: 8px 12px;
@@ -56,6 +60,8 @@ nav a:focus {
 .skip-link:focus {
   left: 10px;
   top: 10px;
+  width: auto;
+  height: auto;
   border-radius: 2px;
   font-weight: bold;
 }
@@ -72,7 +78,7 @@ p {
   line-height: 1.5;
   font-family: Arial, sans-serif;
   color: #000000;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 main {
@@ -92,7 +98,7 @@ section {
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 700px) {
   nav ul {
     flex-direction: row;
     gap: 30px;
