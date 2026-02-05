@@ -165,4 +165,5 @@ h1 {
 
 html {
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
