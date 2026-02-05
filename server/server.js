@@ -14,7 +14,8 @@ const db = new pg.Pool({
 });
 
 app.get(`/`, (req, res) => {
-  res.render("index");
+  // res.render("index");
+  res.status(200).send(`OK`);
 });
 
 // visit this URL to refresh the table with dummy data if anything goes wrong, i'll pull this from a file for collab purposes later
@@ -37,16 +38,27 @@ app.get(`/listings`, async (req, res) => {
   const listingData = await db.query(`${queryStr}`);
   const rows = listingData.rows;
   res.status(200).json(rows);
-
-  console.log(rows);
+  console.log("list request logged");
 });
 
-// Individual listing page?
-app.get(`/listings/:id`, async (req, res) => {
-  const queryStr = `SELECT * FROM listings WHERE id = ${req.params.id}`;
-  const listingData = await db.query(`${queryStr}`);
+// Individual listing page
+// GET to /listing/<listing id> to get only those items
+app.get(`/listing/:id`, async (req, res) => {
+  const queryStr = `SELECT * FROM listings WHERE id = $1`;
+  const listingData = await db.query(`${queryStr}`, [req.params.id]);
+  const rows = listingData.rows;
+  res.status(200).json(rows);
+  console.log("individual listing request");
+});
+
+// Individual category page
+// GET to /category/<category name> to get only those items
+app.get(`/category/:category`, async (req, res) => {
+  const queryStr = `SELECT * FROM listings WHERE category = $1`;
+  const listingData = await db.query(`${queryStr}`, [req.params.category]);
   const rows = listingData.rows; // partly keeping this step around to remind myself it exists
-  console.log(rows);
+  res.status(200).json(rows);
+  console.log("individual category request");
 });
 
 app.post(`/listings`, async (req, res) => {
@@ -66,13 +78,6 @@ app.post(`/listings`, async (req, res) => {
   res.send(`POST requested to /listings successfully:<br/>${submissionData}`);
 });
 
-/* I am just turning this off until I improve it */
-// // TODO - make more intelligent
-// app.delete(`/listings:id`, async (req, res) => {
-//   const dbQuery = await db.query(
-//     `DELETE FROM listings WHERE id = ${req.params.id} OR name = '${req.params.name}' OR title = '${req.params.title}' OR category = '${req.params.category}' OR body = '${req.params.body}' OR brief = '${req.params.brief}'`,
-//   );
-// });
 //Delete
 app.delete(`/listings/:id`, async (req, res) => {
   const id = req.params.id;
@@ -88,8 +93,3 @@ app.delete(`/listings/:id`, async (req, res) => {
 app.listen(3000, (req, res) => {
   console.log(`listening successfully on 3000!`);
 });
-
-/* now what i should do here is retrieve the data once, keep it around in a big cached array, and use it when needed. i will not be doing that yet */
-
-// ((queryStr = `INSERT INTO reviews (name, rating, reviewText) VALUES ($1, $2, $3)`),
-//   [userData.name, Number(userData.rating), userData.reviewText]);
