@@ -46,6 +46,7 @@ nav a:focus {
   position: absolute;
   left: -9999px;
   top: auto;
+  clip: rect(0 0 0 0);
   width: 1px;
   height: 1px;
   overflow: hidden;
@@ -58,6 +59,7 @@ nav a:focus {
 }
 
 .skip-link:focus {
+  clip: auto;
   left: 10px;
   top: 10px;
   width: auto;
@@ -67,8 +69,8 @@ nav a:focus {
 }
 
 a:focus,
-button:focus,
-input:focus {
+button:focus-visible;
+input:focus-visible {
   outline: 3px solid #FFEA00;
   outline-offset: 2px;
 }
@@ -106,7 +108,7 @@ section {
   }
 
   nav {
-    max-width: 1100px;
+    width: 100%;
     margin: 0 auto;
   }
 
