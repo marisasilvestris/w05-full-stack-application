@@ -29,7 +29,9 @@ async function displayListings() {
     const brief = document.createElement("p");
     const body = document.createElement("p");
     const btnid = document.createElement(`button`);
+    btnid.textContent = `go to listing ${listing.id}`;
     const btncat = document.createElement(`button`);
+    btncat.textContent = `go to ${listing.category}`;
 
     title.textContent = listing.title;
     name.textContent = `Posted by: ${listing.name}`;
