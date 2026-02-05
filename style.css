@@ -99,6 +99,10 @@ section {
     align-items: center;
   }
 
+  nav li {
+    padding: 0;
+  }
+
   nav {
     width: 100%;
   }
@@ -125,7 +129,11 @@ section {
     font-size: 16px;
   }
 
-nav li {
-  padding: 6px 0;
+nav {
+  padding: 8px;
 }
 
+nav a {
+  padding: 10px 12px;
+ }
+}
