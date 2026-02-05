@@ -3,7 +3,14 @@ const form = document.getElementById("form");
 const baseURL = "http://localhost:3000";
 
 async function fetchListings() {
-  const response = await fetch(`${baseURL}/listings`);
+  let pathname = window.location.pathname;
+  if (pathname === `/`) {
+    pathname = `/listings`;
+  }
+  console.log(pathname);
+
+  const response = await fetch(`${baseURL}${pathname}`);
+  console.log(response);
 
   const listings = await response.json();
 
@@ -21,18 +28,25 @@ async function displayListings() {
     const category = document.createElement("p");
     const brief = document.createElement("p");
     const body = document.createElement("p");
+    const btnid = document.createElement(`button`);
+    const btncat = document.createElement(`button`);
 
-    
     title.textContent = listing.title;
     name.textContent = `Posted by: ${listing.name}`;
     category.textContent = `Category: ${listing.category}`;
     brief.textContent = listing.brief;
     body.textContent = listing.body;
 
-    
-    card.append(title, name, category, brief, body);
+    btnid.addEventListener(`click`, () => {
+      window.location.pathname = `listing/${listing.id}`;
+    });
 
-    
+    btncat.addEventListener(`click`, () => {
+      window.location.pathname = `category/${listing.category}`;
+    });
+
+    card.append(title, btncat, name, category, brief, body, btnid);
+
     display.appendChild(card);
   });
 }
@@ -40,10 +54,10 @@ async function displayListings() {
 displayListings();
 
 async function handleSubmit(event) {
-event.preventDefault();
+  event.preventDefault();
 
-const formData = new FormData(form);
-const userInput = Object.fromEntries(formData);
+  const formData = new FormData(form);
+  const userInput = Object.fromEntries(formData);
 
   await fetch(`${baseURL}/listings`, {
     method: "POST",
@@ -53,7 +67,6 @@ const userInput = Object.fromEntries(formData);
     body: JSON.stringify(userInput),
   });
 
-  
   form.reset();
 
   displayListings();

@@ -51,15 +51,6 @@ app.get(`/listing/:id`, async (req, res) => {
   console.log("individual listing request");
 });
 
-// example context-dependent version of fetchListings
-// async function fetchListings() {
-//   const response = await fetch(`${baseURL}/category/jobs`);
-
-//   const listings = await response.json();
-
-//   return listings;
-// }
-
 // Individual category page
 // GET to /category/<category name> to get only those items
 app.get(`/category/:category`, async (req, res) => {
@@ -86,14 +77,6 @@ app.post(`/listings`, async (req, res) => {
 
   res.send(`POST requested to /listings successfully:<br/>${submissionData}`);
 });
-
-/* I am just turning this off until I improve it */
-// // TODO - make more intelligent
-// app.delete(`/listings:id`, async (req, res) => {
-//   const dbQuery = await db.query(
-//     `DELETE FROM listings WHERE id = ${req.params.id} OR name = '${req.params.name}' OR title = '${req.params.title}' OR category = '${req.params.category}' OR body = '${req.params.body}' OR brief = '${req.params.brief}'`,
-//   );
-// });
 
 // open port 3000
 app.listen(3000, (req, res) => {
