@@ -129,11 +129,11 @@ section {
     font-size: 16px;
   }
 
-nav {
+  nav {
   padding: 8px;
-}
+  }
 
-nav a {
+  nav a {
   padding: 10px 12px;
  }
 }
