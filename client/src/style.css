@@ -67,9 +67,30 @@ button:hover {
 }
 
 /* Listings section */
+.filters {
+  margin-bottom: 16px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filters button {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f4f4f4;
+  color: #222;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background-color: #ddd;
+}
+
 #app {
   display: flex;
-  flex-direction: wrap; 
+  flex-wrap: wrap; 
   gap: 16px;
 }
 
@@ -77,6 +98,7 @@ button:hover {
   padding: 16px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  flex: 1 1 250px
 }
 
 #app h3 {
