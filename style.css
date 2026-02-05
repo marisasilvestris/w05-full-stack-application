@@ -87,8 +87,6 @@ section {
 }
 
 @media (min-width: 900px) {
-  nav a {
-    margin-right: 0;
   }
 
   nav ul {
