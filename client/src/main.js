@@ -59,7 +59,11 @@ async function handleSubmit(event) {
   event.preventDefault();
 
   const formData = new FormData(form);
+  console.log(formData);
   const userInput = Object.fromEntries(formData);
+  console.log(userInput);
+  userInput.category = userInput.category.toLowerCase();
+  console.log(userInput);
 
   await fetch(`${baseURL}/listings`, {
     method: "POST",
