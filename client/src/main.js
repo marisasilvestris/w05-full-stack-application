@@ -1,6 +1,6 @@
 const display = document.getElementById("app");
 const form = document.getElementById("form");
-const baseURL = "https://w05-full-stack-application.onrender.com/";
+const baseURL = "https://w05-full-stack-application.onrender.com";
 
 async function fetchListings() {
   let pathname = window.location.pathname;
