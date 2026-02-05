@@ -1,19 +1,47 @@
-<!doctype html>
+<!DOCTYPE html>
+<!DOCtype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>client</title>
+    <title>Client</title>
+    
+    <link rel="stylesheet" href="/src/style.css" />
   </head>
+  
   <body>
-    <nav>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/contact">Contact</a>
-  </nav>
-
-  <h1>Welcome to our job app</h1>    <div id="app"></div>
-<script type="module" src="/src/main.js"></script>
-</body>
+    
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <nav aria-label="Site navigation" role="navigation">
+      <ul>
+        <li><a href="/" aria-current="page">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+    
+<main id="main" role="main">
+ <section aria-labelledby="home-heading">
+   <h1 id="home-heading">Home</h1>
+   <p>This is an accessible Home Page where you can browse information about our site.</p>
+ </section>
+  
+<section aria-labelledby="about-heading">
+    <h2 id="about-heading">About</h2>
+      <p>This is an accessible About Page where you can browse information about our site and our listings.</p>
+    </section>
+  
+<section aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Contact</h2>
+      <p>This is an accessible Contact Page where you can browse our Contact information.</p>
+    </section>
+</main>
+    
+<footer role="contentinfo" aria-label="Footer">
+  <p> © Made by Hassan, Marisa, Nithin and Sarah </p>
+</footer>
+  
+  <script type="module" src="/src/main.js"></script>
+ </body>
 </html>

@@ -78,6 +78,17 @@ app.post(`/listings`, async (req, res) => {
   res.send(`POST requested to /listings successfully:<br/>${submissionData}`);
 });
 
+//Delete
+app.delete(`/listings/:id`, async (req, res) => {
+  const id = req.params.id;
+
+  // Simple query using $1 for extra safety
+  await db.query(`DELETE FROM listings WHERE id = $1`, [id]);
+
+  console.log(`Deleted listing with id: ${id}`);
+  res.send(`Deleted item ${id}`);
+});
+
 // open port 3000
 app.listen(3000, (req, res) => {
   console.log(`listening successfully on 3000!`);
