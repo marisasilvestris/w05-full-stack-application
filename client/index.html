@@ -5,54 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Community Board</title>
   <link rel="stylesheet" href="/src/style.css" />
-  <script type="module" src="/src/main.js" defer></script>
+  <script type="module" src="/src/client-only.js" defer></script>
 </head>
 <body>
 
-  <header>
-    <h1>Community Board</h1>
-  </header>
+<header>
+  <h1>Community Board</h1>
+  <div class="header-controls">
+    <div class="categories">
+      <button class="category-btn" data-category="all">all</button>
+      <button class="category-btn" data-category="jobs">jobs</button>
+      <button class="category-btn" data-category="events">events</button>
+      <button class="category-btn" data-category="get-togethers">get-togethers</button>
+      <button class="category-btn" data-category="courses">courses / workshops</button>
+      <button class="category-btn" data-category="announcements">announcements</button>
+    </div>
+    <button id="open-form-btn">submit a listing</button>
+  </div>
+</header>
 
-  <main>
-    <section class="form-section">
-  <h2>Create a Listing</h2>
-
-  <form id="form">
-    <input name="name" placeholder="Name" required />
-    <input name="title" placeholder="Title" required />
-
-    <select name="category" id="category" required>
-      <option value="" disabled selected>Category</option>
-      <option value="Jobs">Jobs</option>
-      <option value="Events">Events</option>
-      <option value="Get-Togethers">Get-Togethers</option>
-      <option value="Courses">Courses / Workshops</option>
-      <option value="Announcements">Announcements</option>
-    </select>
-
-    <input name="brief" placeholder="Brief Description" required />
-    <textarea name="body" placeholder="Please provide a full description of your listing." required></textarea>
-    <button type="submit">Post</button>
-  </form>
-</section>
-
-<section class="filters-section">
-  <h2>Filter by Category</h2>
-  <div class="filters">
-    <button class="category-btn" data-category="All">All</button>
-    <button class="category-btn" data-category="Jobs">Jobs</button>
-    <button class="category-btn" data-category="Events">Events</button>
-    <button class="category-btn" data-category="Get-Togethers">Get-Togethers</button>
-    <button class="category-btn" data-category="Courses">Courses / Workshops</button>
-    <button class="category-btn" data-category="Announcements">Announcements</button>
+<div id="listing-popup" class="popup-overlay">
+  <div class="popup-content">
+    <h2>Create a Listing</h2>
+    <form id="form">
+      <input name="name" placeholder="Name" required />
+      <input name="title" placeholder="Title" required />
+      <select name="category" required>
+        <option value="" disabled selected>category</option>
+        <option value="jobs">jobs</option>
+        <option value="events">events</option>
+        <option value="get-togethers">get-togethers</option>
+        <option value="courses">courses / workshops</option>
+        <option value="announcements">announcements</option>
+      </select>
+      
+      <input name="brief" placeholder="Brief Description" required />
+      <textarea name="body" placeholder="Full description of your listing" required></textarea>
+      <div class="form-buttons">
+        <button type="submit">post</button>
+        <button type="button" id="close-form-btn">cancel</button>
       </div>
-    </section>
+    </form>
+  </div>
+</div>
 
-    <section class="listings-section">
-      <h2>Listings</h2>
-      <div id="app"></div>
-    </section>
+<main>
+  <section class="listings-section">
+    <h2>Listings</h2>
+    <div id="app"></div>
+  </section>
 </main>
 
 </body>
 </html>
+
